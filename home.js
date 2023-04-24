@@ -23,10 +23,10 @@
 
 //CODE HERE
 
-function greetUser(username) => {
-    console.log(`Welcome back, ${username}`)
-}
-greetUser(username)
+const greetUser = (username) => `Welcome back, ${username}`;
+
+console.log(greetUser('Steve'))
+
 
 
 //////////////////PROBLEM 2////////////////////
@@ -53,8 +53,11 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
 
-function canWeDeliver(deliveryAreaZipCodes)
-
+function canWeDeliver(zipCode){
+    return deliveryAreaZipCodes.includes(zipCode) ? `You're in our delivery zone!` : `Sorry, we can't deliver to that address`
+    
+}
+console.log(canWeDeliver(85205))
 /* 
     Problem 2 Continued
 
@@ -74,6 +77,11 @@ function canWeDeliver(deliveryAreaZipCodes)
 
 // CODE HERE
 
+function canWeDeliver(zipCode){
+    return deliveryAreaZipCodes.includes(zipCode) ? `You're in our delivery zone!` : `Sorry, we can't deliver to that address`
+    
+}
+console.log(canWeDeliver(85205))
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -99,6 +107,7 @@ const deals = [
     }
 ]
 
+
 /*
     The owner has decided to take the 15% off
     deal down to 10%.
@@ -110,7 +119,8 @@ const deals = [
 
 //CODE HERE
 
-
+deals[0].title = deals[0].title.replace('15%','10%')
+console.log(deals[0])
 
 /*
     The restaurant is going to continue its
@@ -126,3 +136,6 @@ const deals = [
 */
 
 //CODE HERE
+
+deals[1].desc = deals[1].desc.replace('March','April')
+console.log(deals[1])

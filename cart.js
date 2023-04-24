@@ -58,7 +58,14 @@ console.log("summedPrice", summedPrice)
 
 //CODE HERE
 
-function calcFinalPrice(cartTotal, couponValue, tax)
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    let taxTotal = cartTotal * tax
+    console.log(taxTotal)
+    let finalPrice = (cartTotal + taxTotal) - couponValue
+    console.log(finalPrice)
+    return finalPrice 
+}
+console.log(calcFinalPrice(summedPrice, 1, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -82,7 +89,12 @@ function calcFinalPrice(cartTotal, couponValue, tax)
 
 /*
     TEXT ANSWER HERE
-
+    {
+        name string, a way to identify the group
+        totalGuests number, want to know how many guests
+        vegan boolean, to find out if vegan menu is needed 
+        allergies boolean, if the food needs any special prep
+    }
 */
 
 /*
@@ -91,3 +103,10 @@ function calcFinalPrice(cartTotal, couponValue, tax)
 */
 
 //CODE HERE
+
+const reservation = {
+    name: "Nick Olson",
+    totalGuests: 4,
+    vegan: true,
+    allergies: false
+}

@@ -31,7 +31,14 @@
 */
 
 //CODE HERE
-let pizza('name', price, 'category', popularity, rating, `tags`)
+let pizza = {
+    name: 'Buzz',
+    price: 1,
+    category: 'entree',
+    popularity: 5,
+    rating: 10,
+    tags: ['big guy', 'sausage']
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,7 +50,7 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 */
 
 //CODE HERE
-
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,6 +60,7 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 */
 
 //CODE HERE
+console.log(pizza.tags[1])
 
 
 /*
@@ -63,6 +71,8 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 */
 
 //CODE HERE
+let { price: newPrice } = pizza
+console.log(newPrice)
 
 
 /*
@@ -73,6 +83,8 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 */
 
 //CODE HERE
+let { category: cat  } = pizza
+console.log(cat)
 
 
 //////////////////PROBLEM 3////////////////////
@@ -89,7 +101,48 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 
 //CODE HERE
 
-
+let foodArr = [
+    {
+        name: 'Buzz',
+        price: 1,
+        category: 'entree',
+        popularity: 5,
+        rating: 10,
+        tags: ['big guy', 'sausage']
+    },
+    {
+        name: 'Sandwich',
+        price: 3,
+        category: 'entree',
+        popularity: 7,
+        rating: 18,
+        tags: ['meaty', 'ham']
+    },
+    {
+        name: 'Wrap',
+        price: 5,
+        category: 'entree',
+        popularity: 4,
+        rating: 18,
+        tags: ['healty', 'leafy']
+    },
+    {
+        name: 'Cheese Sticks',
+        price: 2,
+        category: 'appetizer',
+        popularity: 2,
+        rating: 3,
+        tags: ['cheesy', 'crust']
+    },
+    {
+        name: 'Wings',
+        price: 9,
+        category: 'appetizer',
+        popularity: 9,
+        rating: 5,
+        tags: ['sauce', 'fried', `meaty`]
+    }
+]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -105,8 +158,17 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
+function filteredFood(tagName){
+    let list = foodArr.filter(item => {
+        return item.tags.includes(tagName)
+    })
+    console.log(list)
+} 
+function findFoods(callback){
+    const tagName = 'meaty' 
+    callback(tagName)
+}
+findFoods(filteredFood)
 
 
 //////////////////PROBLEM 5////////////////////
@@ -149,6 +211,27 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 */
 
 //CODE HERE
+//property is a string that is the object key, number is comparitor, type = above or below
+
+function filterByProperty(property, number, type){
+    let list = foodArr.filter(item => {
+       if(type == 'above'){
+            return item[property] > number
+       }else if(type == 'below') {
+            return item[property] < number
+       }
+    })
+    return list
+}
+
+function filterFoods(callback){
+    const propFilter = 'popularity' 
+    const numberFilter = 5 
+    const typeFilter = 'above' 
+    callback(propFilter, numberFilter, typeFilter)
+}
+
+filterFoods(filterByProperty)
 
 
 /*
@@ -159,3 +242,4 @@ let pizza('name', price, 'category', popularity, rating, `tags`)
 */
 
 //CODE HERE
+console.log(filterByProperty('rating', 18, 'below'))

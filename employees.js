@@ -23,15 +23,16 @@
 
 class Employee {
     constructor(name, shifts){
-    this.name = Bob
-    this.shifts = mornings
+    this.name = name
+    this.shifts = shifts
     }
-    getSchedule(gS){
-        this.
+    getSchedule(){
+        return `${this.name} works on ${this.shifts}`
     }
-}
 
-console.log(gS)
+}
+const bob = new Employee("Bob", "mornings")
+console.log(bob.getSchedule())  
 
 
 
@@ -47,7 +48,7 @@ console.log(gS)
 
 //CODE HERE
 
-let empOne = new Employee(Jess, weekday mornings afternoons)
+let empOne = new Employee("Jess", "weekday mornings, weekday afternoons")
 
 /*
     Call the `getSchedule` method on the
@@ -55,7 +56,7 @@ let empOne = new Employee(Jess, weekday mornings afternoons)
 */
 
 //CODE HERE
-empOne.getSchedule()
+console.log(empOne.getSchedule())
 
 /*
     Make a copy of the empOne object
@@ -72,6 +73,8 @@ empOne.getSchedule()
 //CODE HERE
 
 let empTwo = {...empOne}
+empTwo.name = "Nick"
+
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -99,8 +102,15 @@ let empTwo = {...empOne}
 //CODE HERE
 
 class Manager extends Employee {
-    constructor(name, shifts, employee) {
-        super(name, )
+    constructor(name, shifts, employees) {
+        super(name, shifts)
+        this.employees = employees   
+    }
+    getEmployees(){
+      return`${this.name} manages ${this.employees}`
+    }
+    addEmployee(emp){
+        this.employees.push(emp)
     }
 }
 
@@ -117,6 +127,7 @@ class Manager extends Employee {
 
 //CODE HERE
 
+const manager = new Manager('Marky Mark', 'all day err day', ['Gunnar', 'Cash'])
 
 /*
     Call the `getEmployees` method on the
@@ -124,7 +135,7 @@ class Manager extends Employee {
 */
 
 //CODE HERE
-
+console.log(manager.getEmployees())
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -132,7 +143,7 @@ class Manager extends Employee {
 */
 
 //CODE HERE 
-
+manager.addEmployee('Funky Bunch')
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -140,3 +151,4 @@ class Manager extends Employee {
 */
 
 //CODE HERE
+console.log(manager.getEmployees())
